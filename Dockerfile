@@ -33,7 +33,7 @@ RUN \
         cd .. &&\
         rm -rf Windows Mac
 
-#RUN sed -i '0,/all/s//all\n\n\nchmod +x $KICKSTART\n\n/' /terraria-server/Linux/tModLoaderServer
+RUN sed -i '0,/all/s//all\n\n\nchmod +x $KICKSTART\n\n/' /terraria-server/Linux/tModLoaderServer
 
 # ports used
 EXPOSE 7777
