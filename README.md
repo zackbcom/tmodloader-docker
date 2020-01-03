@@ -15,6 +15,27 @@ Terraria server 1.3.5.3 with tModLoader v0.11.5
 You can mount a config file in order to prevent the server requiring input on startup. See [wiki][0] for file format details.
 
     docker run -it --name terraria -p 7777:7777 -v /path/to/.../terraria:/terraria -v /path/to/.../config.txt:/terraria-server/config.txt j123ss/tmodloader
+    
+# Docker Compose Example
+Make sure `stdin_open` and `tty` are in the config or terraria will crash on server start.
+Create the config.txt file before you start the service.
+
+docker-dompose.yml
+```
+version: "3.7"
+services:
+  terraria:
+    image: rfvgyhn/tmodloader
+    container_name: terraria
+    stdin_open: true
+    tty: true
+    restart: always
+    ports:
+      - "7777:7777"
+    volumes:
+      - /opt/terraria/data:/terraria
+      - /opt/terraria/config/config.txt:/terraria-server/config.txt
+```
 
 # More info
 
