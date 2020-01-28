@@ -1,5 +1,5 @@
 # METADATA
-FROM debian:testing-slim
+FROM mono:latest
 LABEL maintainer="joe.stratton@asu.edu"
 
 ARG TMOD_VERSION=0.11.5
